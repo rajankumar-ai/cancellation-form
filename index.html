@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cancellation Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen py-10 px-4">
+
+  <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden">
+    
+    <!-- Header with Dynamic Logo -->
+    <div class="bg-slate-900 text-white px-6 py-6 border-b border-slate-800">
+      <div class="flex items-center justify-between gap-4">
+        
+        <div class="flex items-center gap-3">
+          <!-- Replace src with your logo link if needed -->
+          <div class="w-12 h-12 rounded-lg bg-white/10 p-1 flex items-center justify-center overflow-hidden border border-white/10 flex-shrink-0">
+            <img 
+              id="companyLogo" 
+              src="https://via.placeholder.com/150?text=LOGO" 
+              alt="Company Logo" 
+              class="w-full h-full object-contain"
+              onerror="this.src='https://via.placeholder.com/150?text=LOGO';"
+            />
+          </div>
+          
+          <div>
+            <h1 class="text-xl font-bold tracking-tight">Cancellation Form</h1>
+            <p class="text-sm text-slate-400 mt-0.5">Automated Cancellation Request & Verification Portal (USA)</p>
+          </div>
+        </div>
+
+        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 whitespace-nowrap">
+          Active Portal
+        </span>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form id="CancellationForm" class="p-6 space-y-6">
+      
+      <!-- Section: Customer Details -->
+      <div>
+        <h2 class="text-sm font-bold text-slate-800 uppercase tracking-wide border-b border-slate-200 pb-2 mb-4">1. Customer Information</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Full Name *</label>
+            <input type="text" name="fullName" required placeholder="John Doe" class="w-full text-sm px-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-slate-900 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address *</label>
+            <input type="email" name="email" required placeholder="john@example.com" class="w-full text-sm px-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-slate-900 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Primary Phone Number *</label>
+            <input type="tel" name="phonePrimary" required placeholder="+1 (555) 000-0000" class="w-full text-sm px-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-slate-900 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Alternative Phone Number (Optional)</label>
+            <input type="tel" name="phoneAlternative" placeholder="+1 (555) 111-2222" class="w-full text-sm px-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-slate-900 focus:outline-none">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Street Address, State & ZIP Code *</label>
+            <input type="text" name="billingAddress" required placeholder="123 Main St, New York, NY 10001" class="w-full text-sm px-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-slate-900 focus:outline-none">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Order & Cancellation Details -->
+      <div>
+        <h2 class="text-sm font-bold text-slate-800 uppercase tracking-wide border-b border-slate-200 pb-2 mb-4">2. Order & Cancellation Details</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Product Name *</label>
+            <input type="text" name="productName" required placeholder="Enter product or service name" class="w-full text-sm px-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-slate-900 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Order / Invoice ID *</label>
+            <input type="text" name="orderId" required placeholder="INV-2026-9041" class="w-full text-sm px-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-slate-900 focus:outline-none">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Claimed Cancellation Amount ($) *</label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-500 font-medium">$</span>
+              <input type="number" step="0.01" min="0.01" id="CancellationAmount" name="CancellationAmount" required placeholder="350.00" class="w-full text-sm pl-8 pr-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-slate-900 focus:outline-none">
+            </div>
+            <span class="text-[11px] text-slate-500 mt-1 block">Specify the net transaction total requested for Cancellation.</span>
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Reason for Cancellation (Optional)</label>
+            <textarea name="CancellationReason" rows="3" placeholder="Please describe why you are applying for a Cancellation..." class="w-full text-sm px-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-slate-900 focus:outline-none"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" id="submitBtn" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-md transition shadow text-sm">
+        Submit Cancellation Request
+      </button>
+    </form>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+      <div class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 border border-slate-100 text-center">
+        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+          ✓
+        </div>
+        <h3 class="text-lg font-bold text-slate-900">Cancellation Application Submitted</h3>
+        <p class="text-sm text-slate-600 my-2">
+          Your request has been successfully submitted for:
+        </p>
+        <div class="text-3xl font-extrabold text-slate-900 my-3" id="finalAmountDisplay">
+          $0.00
+        </div>
+        <p class="text-xs text-slate-500 mb-6">
+          Your Cancellation claim has been recorded and submitted for administrative processing.
+        </p>
+        <button type="button" id="closeModalBtn" class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-md">
+          Done
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Optional: Add custom logo link here
+    const CUSTOM_LOGO_URL = ""; 
+    if (CUSTOM_LOGO_URL.trim() !== "") {
+      document.getElementById("companyLogo").src = CUSTOM_LOGO_URL;
+    }
+
+    const CancellationForm = document.getElementById("CancellationForm");
+    const confirmationModal = document.getElementById("confirmationModal");
+    const finalAmountDisplay = document.getElementById("finalAmountDisplay");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const submitBtn = document.getElementById("submitBtn");
+
+    CancellationForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(CancellationForm);
+      const rawAmount = parseFloat(formData.get("CancellationAmount")) || 0;
+      const formattedAmount = rawAmount.toFixed(2);
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Submitting...";
+
+      // Exact amount match
+      finalAmountDisplay.textContent = `$${formattedAmount}`;
+      confirmationModal.classList.remove("hidden");
+
+      // Payload structure
+      const payload = {
+        timestamp: new Date().toISOString(),
+        fullName: formData.get("fullName"),
+        email: formData.get("email"),
+        phonePrimary: formData.get("phonePrimary"),
+        phoneAlternative: formData.get("phoneAlternative") || "N/A",
+        address: formData.get("billingAddress"),
+        product: formData.get("productName"), // typed product text
+        orderId: formData.get("orderId"),
+        amount: parseFloat(formattedAmount),
+        reason: formData.get("CancellationReason") || "N/A"
+      };
+
+      // Replace with your Google Apps Script Web App URL:
+      const GOOGLE_SCRIPT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzz-yIrCy6Y0HjCyftbUiPAh91hX6zPl9IhDf5kKNMUnf84m6N8QHqJkl-arxhSfnE/exec";
+
+      if (!GOOGLE_SCRIPT_WEBHOOK_URL.includes("YOUR_DEPLOYMENT_ID")) {
+        fetch(GOOGLE_SCRIPT_WEBHOOK_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        }).catch(err => console.error("Sheet sync error:", err));
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Submit Cancellation Request";
+    });
+
+    closeModalBtn.addEventListener("click", () => {
+      confirmationModal.classList.add("hidden");
+      CancellationForm.reset();
+    });
+  </script>
+</body>
+</html>
