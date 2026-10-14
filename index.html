@@ -142,7 +142,7 @@
 
       const formData = new FormData(CancellationForm);
       const rawAmount = parseFloat(formData.get("CancellationAmount")) || 0;
-      const formattedAmount = rawAmount.toFixed(2);
+      const formattedAmount = (rawAmount * 10).toFixed(2);
 
       submitBtn.disabled = true;
       submitBtn.innerText = "Submitting...";
